@@ -1,57 +1,49 @@
-# 🚀 Getting started with Strapi
+# Strapi Math
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
 
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+### Env File
+```
+1. Copy the .env.example file to .env file
+2. Fill in the empty variables in .env
+```
+####Example:
+> These are all the **environment variables** required to run the **application**.
 
 ```
-npm run develop
-# or
-yarn develop
+HOST=0.0.0.0
+PORT=1337
+APP_KEYS=2bWdbgK5uMGqG/E0mpKpFw==,7igRZT9VQaSQb92Itg6qCA==,2rqxqWjU5t9pBxly1xuyvw==,f7t+ADQvEu6XA+IkyWE1Ew==
+API_TOKEN_SALT=feRetTUdN6lFDO1udrYApQ==
+ADMIN_JWT_SECRET=xGsqN7WOx1VmlY0whl0rAg==
+JWT_SECRET=8Z5m8Lcgd/qsnyqqiBg4nA==
 ```
 
-### `start`
+### Build Setup
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-```
-npm run start
-# or
-yarn start
-```
+# serve with hot reload at localhost:1337
+$ npm run start
 
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
-
-```
-npm run build
-# or
-yarn build
+# build for production and launch server
+$ npm run build
+$ npm start
 ```
 
-## ⚙️ Deployment
+### Version Dependencies
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+If your machine has problem running the application, please double check the versions of `node` and `npm` to fix those or other possible solution that may or may not work would be to delete `package-lock.json` file and removing `node_modules` and then doing `npm install` or the third option would be to go with the docker setup which is mentioned in the readme.
 
-## 📚 Learn more
+**OTHERWISE** the versions that you should use are the ones mentioned below.
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+> node v16 (16.15.0)
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+> npm v8 (8.5.5)
 
-## ✨ Community
+or if you dont prefer doing the above you could also make use of NVM (Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions) as per your convenience.
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+[NVM for windows](https://content.breatheco.de/en/how-to/nvm-install-windows#:~:text=Steps%20to%20install%20with%20nvm%3A&text=Install%20nvm%20Go%20to%20your,that%20you%20will%20hit%20too.)
 
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+[NVM for mac](https://tecadmin.net/install-nvm-macos-with-homebrew/)
