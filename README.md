@@ -24,15 +24,15 @@ JWT_SECRET=8Z5m8Lcgd/qsnyqqiBg4nA==
 # install dependencies
 $ npm install # Or yarn install
 
+# to enable the ability to export/import entries
+$ npm run build --clean
+
 # serve with hot reload at localhost:1337
 $ npm run start
 
 # build for production and launch server
 $ npm run build
 $ npm start
-
-# to enable the ability to export/import entries
-$ npm run build --clean
 
 ```
 
