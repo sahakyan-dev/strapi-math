@@ -16,5 +16,20 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/*{ strapi }*/) {},
+  bootstrap(/*{ strapi }*/) {
+    const data = require('fs').readFileSync('./database/seeds/index.json', 'utf-8');
+    const seedData = JSON.parse(data);
+
+    Object.keys(seedData).forEach(entryKey => {
+      const entryArrayData = Object.assign([], seedData[entryKey]);
+      entryArrayData.shift();
+      entryArrayData.forEach(async entry => {
+        let check = await strapi.services[entryKey].find({id: entry.id})
+
+        if (!check.results.length) {
+          strapi.services[entryKey].create({data: entry});
+        }
+      })
+    })
+  },
 };

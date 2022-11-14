@@ -30,6 +30,10 @@ $ npm run start
 # build for production and launch server
 $ npm run build
 $ npm start
+
+# to enable the ability to export/import entries
+$ npm run build --clean
+
 ```
 
 ### Database
