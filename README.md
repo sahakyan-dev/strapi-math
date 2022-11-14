@@ -32,6 +32,11 @@ $ npm run build
 $ npm start
 ```
 
+### Database
+
+Database seed files is in `database/seeds` folder.
+
+
 ### Version Dependencies
 
 If your machine has problem running the application, please double check the versions of `node` and `npm` to fix those or other possible solution that may or may not work would be to delete `package-lock.json` file and removing `node_modules` and then doing `npm install` or the third option would be to go with the docker setup which is mentioned in the readme.
