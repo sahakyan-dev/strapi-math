@@ -25,6 +25,12 @@
     "answer": {
       "type": "string",
       "required": true
+    },
+    "user_answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-answer.user-answer",
+      "mappedBy": "question"
     }
   }
 }

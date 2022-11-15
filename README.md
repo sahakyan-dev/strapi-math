@@ -29,6 +29,8 @@ $ npm run build --clean
 
 # serve with hot reload at localhost:1337
 $ npm run start
+OR 
+$ npm run develop
 
 # build for production and launch server
 $ npm run build
