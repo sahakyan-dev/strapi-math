@@ -1,47 +1,65 @@
 # Strapi Math
 
-
-### Env File
-```
-1. Copy the .env.example file to .env file
-2. Fill in the empty variables in .env
-```
-####Example:
-> These are all the **environment variables** required to run the **application**.
-
-```
-HOST=0.0.0.0
-PORT=1337
-APP_KEYS=2bWdbgK5uMGqG/E0mpKpFw==,7igRZT9VQaSQb92Itg6qCA==,2rqxqWjU5t9pBxly1xuyvw==,f7t+ADQvEu6XA+IkyWE1Ew==
-API_TOKEN_SALT=feRetTUdN6lFDO1udrYApQ==
-ADMIN_JWT_SECRET=xGsqN7WOx1VmlY0whl0rAg==
-JWT_SECRET=8Z5m8Lcgd/qsnyqqiBg4nA==
-```
-
-### Build Setup
-
+### How to install
 ``` bash
+# clone project
+$ git clone https://github.com/sahakyan-dev/strapi-math.git
+# go to project folder
+$ cd strapi-math/
+# Copy the .env.example file to .env file
+$ cp .env.example .env
 # install dependencies
 $ npm install # Or yarn install
-
-# to enable the ability to export/import entries
+# Build admin UI 
 $ npm run build --clean
+```
 
+### Run project
+``` bash
 # serve with hot reload at localhost:1337
 $ npm run start
-OR 
+# OR run development mode 
 $ npm run develop
+```
+When the project is launched for the first time, a registration link opens in the browser - `http://localhost:1337/admin/auth/register-admin`
+<br/>
+Fill in your data for your administrator user and click **Let's start**.
 
+### Give correct permissions
+1. Click on **Settings** under **GENERAL** in the side menu
+2. Click on **Roles** under **Users and Permissions Plugin**.
+3. It will display a list of roles. Click on **Public**
+<br/><br/>
+Scroll down, under **Permissions**, click on:
+4. **Users-permissions**, then:<br/>
+   **Auth** - Select all <br/>
+   **Permissions** - Select all <br/>
+   **User** - Select all <br/>
+5. Click save, then go back.
+
+<br/><br/>
+6. Click on **Roles** under **Users and Permissions Plugin**.
+7. Click on **Authenticated**
+8. **Category**, then:<br/>
+   Choose *find* and *findOne*
+9. **Question**, then:<br/>
+   Choose *find* and *findOne*
+10. **Answer**, then:<br/>
+    Choose *find* and *findOne*
+11. **User-answer**, then:<br/>
+    Choose *create*, *find* and *findOne*
+12. Click save, then go back.
+
+### For production server
+``` bash
 # build for production and launch server
 $ npm run build
 $ npm start
-
 ```
 
 ### Database
 
-Database seed files is in `database/seeds` folder.
-
+Database seed files stored in the `database/seeds` folder.
 
 ### Version Dependencies
 
