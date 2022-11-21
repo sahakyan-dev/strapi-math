@@ -24,9 +24,9 @@ module.exports = {
       const entryArrayData = Object.assign([], seedData[entryKey]);
       entryArrayData.shift();
       entryArrayData.forEach(async entry => {
-        let check = await strapi.services[entryKey].find({id: entry.id})
+        let check = await strapi.services[entryKey].findOne(entry.id)
 
-        if (!check.results.length) {
+        if (!check) {
           strapi.services[entryKey].create({data: entry});
         }
       })

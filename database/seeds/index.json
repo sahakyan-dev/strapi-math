@@ -111,6 +111,171 @@
       "category": 1,
       "createdBy": null,
       "updatedBy": null
+    },
+    "4": {
+      "id": 4,
+      "question": "1 * 4",
+      "answer": "4",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "5": {
+      "id": 5,
+      "question": "1 * 5",
+      "answer": "5",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "6": {
+      "id": 6,
+      "question": "1 * 6",
+      "answer": "6",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "7": {
+      "id": 7,
+      "question": "1 * 7",
+      "answer": "7",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "8": {
+      "id": 8,
+      "question": "1 * 8",
+      "answer": "8",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "9": {
+      "id": 9,
+      "question": "1 * 9",
+      "answer": "9",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "10": {
+      "id": 10,
+      "question": "1 * 10",
+      "answer": "10",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "11": {
+      "id": 11,
+      "question": "1 * 11",
+      "answer": "11",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "12": {
+      "id": 12,
+      "question": "1 * 12",
+      "answer": "12",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "13": {
+      "id": 13,
+      "question": "1 * 13",
+      "answer": "13",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "14": {
+      "id": 14,
+      "question": "1 * 14",
+      "answer": "14",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "15": {
+      "id": 15,
+      "question": "1 * 15",
+      "answer": "15",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "16": {
+      "id": 16,
+      "question": "1 * 16",
+      "answer": "16",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "17": {
+      "id": 17,
+      "question": "1 * 17",
+      "answer": "17",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
+    },
+    "18": {
+      "id": 18,
+      "question": "1 * 18",
+      "answer": "18",
+      "createdAt": "2022-10-23T15:28:48.757Z",
+      "updatedAt": "2022-10-23T15:28:50.013Z",
+      "publishedAt": "2022-10-23T15:28:50.011Z",
+      "category": 1,
+      "createdBy": null,
+      "updatedBy": null
     }
   }
 }
