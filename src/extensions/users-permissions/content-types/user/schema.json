@@ -68,6 +68,10 @@
       "relation": "oneToMany",
       "target": "api::user-answer.user-answer",
       "mappedBy": "users_permissions_user"
+    },
+    "points": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
