@@ -72,6 +72,30 @@
     "points": {
       "type": "integer",
       "default": 0
+    },
+    "name": {
+      "type": "string"
+    },
+    "surname": {
+      "type": "string"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "date"
+    },
+    "country": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "institution": {
+      "type": "string"
+    },
+    "course": {
+      "type": "string"
     }
   }
 }
