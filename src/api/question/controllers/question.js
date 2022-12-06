@@ -7,6 +7,28 @@
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::question.question', ({ strapi }) => ({
+  async getAnsweredQuestions(ctx) {
+    try {
+      const user = await strapi.plugins['users-permissions'].services.jwt.getToken(ctx);
+      const args = ctx.query = {
+        populate: 'question',
+        filters: {
+          users_permissions_user: {
+            id: { $eq: user.id }
+          }
+        },
+        local: 'en'
+      };
+
+      const userAnswersData  = await strapi.service('api::user-answer.user-answer').find(args);
+      let results = userAnswersData.results.length ? userAnswersData.results.map((data) => data.question) : [];
+
+      return { results }
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
+
   // Method 2: Wrapping a core action (leaves core logic in place)
   async find(ctx) {
     // some custom logic here
