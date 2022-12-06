@@ -7,15 +7,14 @@ module.exports = {
       config: {
         auth: false,
       }
+    },
+    {
+      method: 'GET',
+      path: '/past-categories',
+      handler: 'category.getPastCategories',
+      config: {
+        auth: false,
+      }
     }
-    // ,
-    // {
-    //   method: 'GET',
-    //   path: '/past-categories',
-    //   handler: 'category.getPastCategories',
-    //   config: {
-    //     auth: false,
-    //   }
-    // }
   ]
 }

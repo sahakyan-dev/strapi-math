@@ -7,6 +7,36 @@
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::category.category', ({ strapi }) => ({
+  async getPastCategories(ctx) {
+      try {
+        const user = await strapi.plugins['users-permissions'].services.jwt.getToken(ctx);
+        const categories = await strapi.db.query('api::category.category').findMany();
+        return (await Promise.all(
+          categories.map(async category => {
+            let questionsCount = await strapi.db.query('api::question.question').count({
+              where: {
+                category: category.id
+              }
+            })
+
+            let answersCount = await strapi.db.query('api::user-answer.user-answer').count({
+              where: {
+                users_permissions_user: user.id,
+                category: category.id
+              }
+            })
+            const keep = answersCount === questionsCount && questionsCount !== 0;
+
+            return { category, keep };
+          })
+        )).filter((data) => data.keep)
+          .map((data) => data.category);
+
+      } catch (err) {
+        ctx.body = err;
+      }
+  },
+
   async getLastCategory(ctx) {
       try {
         const user = await strapi.plugins['users-permissions'].services.jwt.getToken(ctx);
