@@ -9,7 +9,8 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('api::category.category', ({ strapi }) => ({
   async getLastCategory(ctx) {
       try {
-        const args1 = {"filters":{"users_permissions_user":{"id":{"$eq":"2"}}},"pagination":{"limit":"1"},"sort":"createdAt:desc","populate":{"0":"question","question"
+        const user = await strapi.plugins['users-permissions'].services.jwt.getToken(ctx);
+        const args1 = {"filters":{"users_permissions_user":{"id":{"$eq": user.id}}},"pagination":{"limit":"1"},"sort":"createdAt:desc","populate":{"0":"question","question"
           :{"fields":"id","populate":"category"}}}
         const args = ctx.query = { ...args1, local: 'en' };
         const lastCategoryData  = await strapi.service('api::user-answer.user-answer').find(args);
@@ -19,7 +20,7 @@ module.exports = createCoreController('api::category.category', ({ strapi }) => 
           const args2 = {
             "filters": {
               "users_permissions_user": {
-                "id": { "$eq": "2" }
+                "id": { "$eq": user.id }
               },
               "category": {
                 "id": { "$eq": lastCategory.id }
