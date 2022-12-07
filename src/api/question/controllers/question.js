@@ -21,9 +21,9 @@ module.exports = createCoreController('api::question.question', ({ strapi }) => 
       };
 
       const userAnswersData  = await strapi.service('api::user-answer.user-answer').find(args);
-      let results = userAnswersData.results.length ? userAnswersData.results.map((data) => data.question) : [];
+      const result = userAnswersData?.pagination?.total;
 
-      return { results }
+      return { result }
     } catch (err) {
       ctx.body = err;
     }
