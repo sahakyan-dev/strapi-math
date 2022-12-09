@@ -29,4 +29,22 @@ module.exports = createCoreController('api::user-answer.user-answer', ({ strapi 
 
     return this.transformResponse(sanitizedEntity);
   },
+
+  async create(ctx) {
+    // some logic here
+    const response = await super.create(ctx);
+    const user = ctx.state.user;
+    const {id, points} = user;
+    const statusesObj = {
+      correct: 3,
+      wrong: -2,
+      skipped: -1,
+    };
+    const newPoints = points + statusesObj[response.data.attributes.status];
+
+    // update user's points on answer creation
+    await strapi.service('plugin::users-permissions.user').edit(id, { points: newPoints });
+
+    return response;
+  }
 }));
