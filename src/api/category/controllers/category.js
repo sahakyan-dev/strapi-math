@@ -25,7 +25,7 @@ module.exports = createCoreController('api::category.category', ({ strapi }) => 
                 category: category.id
               }
             })
-            const keep = answersCount === questionsCount && questionsCount !== 0;
+            const keep = answersCount >= questionsCount && questionsCount !== 0;
 
             return { category, keep };
           })
