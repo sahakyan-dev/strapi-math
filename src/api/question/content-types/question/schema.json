@@ -31,6 +31,9 @@
       "relation": "oneToMany",
       "target": "api::user-answer.user-answer",
       "mappedBy": "question"
+    },
+    "wrong_answers": {
+      "type": "json"
     }
   }
 }
