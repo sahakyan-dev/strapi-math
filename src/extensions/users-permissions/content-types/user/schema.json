@@ -91,11 +91,14 @@
     "city": {
       "type": "string"
     },
-    "institution": {
-      "type": "string"
-    },
     "course": {
       "type": "string"
+    },
+    "institution": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::institution.institution",
+      "inversedBy": "users"
     }
   }
 }
