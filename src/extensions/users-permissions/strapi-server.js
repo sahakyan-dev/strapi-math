@@ -43,13 +43,13 @@ module.exports = (plugin) => {
     if (courseName) {
       const institutionEntry = await strapi.entityService.findOne('api::institution.institution', institutionId);
 
-      if (!institutionEntry.courses.includes(courseName)) {
+      if (!institutionEntry.courses || !institutionEntry.courses.includes(courseName)) {
         await strapi.entityService.update(
           'api::institution.institution',
           institutionId,
           {
             data: {
-              courses: [...institutionEntry.courses, courseName]
+              courses: institutionEntry.courses ? [...institutionEntry.courses, courseName] : [courseName]
             }
           })
       }
