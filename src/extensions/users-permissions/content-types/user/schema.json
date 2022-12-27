@@ -18,13 +18,13 @@
       "minLength": 3,
       "unique": true,
       "configurable": false,
-      "required": true
+      "required": false
     },
     "email": {
       "type": "email",
       "minLength": 6,
       "configurable": false,
-      "required": true
+      "required": false
     },
     "provider": {
       "type": "string",
@@ -34,7 +34,8 @@
       "type": "password",
       "minLength": 6,
       "configurable": false,
-      "private": true
+      "private": true,
+      "required": false
     },
     "resetPasswordToken": {
       "type": "string",
@@ -80,7 +81,9 @@
       "type": "string"
     },
     "nickname": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "dateOfBirth": {
       "type": "date"

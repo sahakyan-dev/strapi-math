@@ -1,4 +1,26 @@
+const _ = require('lodash');
+const utils = require('@strapi/utils');
+const { getService } = require('../users-permissions/utils');
+const { sanitize } = utils;
+const { ApplicationError } = utils.errors;
+const jwt = require('jsonwebtoken');
+const sanitizeUser = (user, ctx) => {
+  const { auth } = ctx.state;
+  const userSchema = strapi.getModel('plugin::users-permissions.user');
+  return sanitize.contentAPI.output(user, userSchema, { auth });
+};
+
 module.exports = (plugin) => {
+  // JWT issuer
+  const issue = (payload, jwtOptions = {}) => {
+    _.defaults(jwtOptions, strapi.config.get('plugin.users-permissions.jwt'));
+    return jwt.sign(
+      _.clone(payload.toJSON ? payload.toJSON() : payload),
+      strapi.config.get('plugin.users-permissions.jwtSecret'),
+      jwtOptions
+    );
+  };
+
   // getting points controller
   plugin.controllers.user.getPoints = async (ctx) => {
     const { filters, sort, pagination } = ctx.request.query;
@@ -13,6 +35,25 @@ module.exports = (plugin) => {
       }
     );
   };
+
+  // register by nickname only
+  plugin.controllers.auth.registerByNickname = async (ctx) => {
+    try {
+      const user = await strapi
+        .query('plugin::users-permissions.user')
+        .create({ data: {...ctx.request.body, confirmed: true} });
+
+      const sanitizedUser = await sanitizeUser(user, ctx);
+      const jwt = issue(_.pick(user, ['id']));
+
+      return ctx.send({
+        jwt,
+        user: sanitizedUser,
+      });
+    } catch (error) {
+      throw new ApplicationError(error.message);
+    }
+  }
 
   // extending of user's update() method - adding of saving course/class
   plugin.controllers.user['update'] = async (ctx) => {
@@ -69,14 +110,24 @@ module.exports = (plugin) => {
     );
   }
 
-  plugin.routes['content-api'].routes.push({
-    method: 'GET',
-    path: '/get-points',
-    handler: 'user.getPoints',
-    config: {
-      prefix: ''
+  plugin.routes['content-api'].routes.push(
+    {
+      method: 'GET',
+      path: '/get-points',
+      handler: 'user.getPoints',
+      config: {
+        prefix: ''
+      }
+    },
+    {
+      method: 'POST',
+      path: '/auth/local/register-by-nickname',
+      handler: 'auth.registerByNickname',
+      config: {
+        prefix: ''
+      }
     }
-  })
+  );
 
   return plugin;
 };
