@@ -23,6 +23,7 @@
     "email": {
       "type": "email",
       "minLength": 6,
+      "unique": true,
       "configurable": false,
       "required": false
     },
@@ -83,7 +84,8 @@
     "nickname": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "minLength": 3
     },
     "dateOfBirth": {
       "type": "date"
