@@ -219,10 +219,10 @@ module.exports = (plugin) => {
   plugin.controllers.user.update = async (ctx) => {
     const data = ctx.request.body;
     let institutionId;
-    let courseName = data.course.replaceAll(' ', '').toLowerCase();
+    let courseName = data.course?.replaceAll(' ', '').toLowerCase();
 
     // adding of relation to the Institution model
-    if (data.institution.name && data.institution.place_id) {
+    if (data.institution?.name && data.institution?.place_id) {
       const institutions = await strapi.entityService.findMany('api::institution.institution');
       const institutionItem = institutions.find(item => item.place_id === data.institution.place_id);
 
@@ -242,6 +242,10 @@ module.exports = (plugin) => {
 
     // adding of course to institution
     if (courseName) {
+      if (!data.institution.name || !data.institution.place_id) {
+        throw new ApplicationError('Please fill your school/university/college before class/course');
+      }
+
       const institutionEntry = await strapi.entityService.findOne('api::institution.institution', institutionId);
 
       if (!institutionEntry.courses || !institutionEntry.courses.includes(courseName)) {
@@ -262,8 +266,8 @@ module.exports = (plugin) => {
       {
         data: {
           ...data,
-          institution: institutionId,
-          course: courseName
+          ...(institutionId && {institution: institutionId}),
+          ...(courseName && {course: courseName})
         },
         populate: ['institution']
       }
