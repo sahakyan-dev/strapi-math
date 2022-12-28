@@ -18,8 +18,6 @@ module.exports = createCoreController('api::institution.institution', ({ strapi 
           },
         });
 
-      console.log(institution.courses)
-
       if (!institution || !institution.courses.length) return [];
 
       return { courses: institution.courses }
