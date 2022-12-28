@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "name": {
+      "type": "string"
+    },
     "place_id": {
       "type": "string",
       "unique": true,
       "required": false
-    },
-    "name": {
-      "type": "string"
     },
     "courses": {
       "type": "json"

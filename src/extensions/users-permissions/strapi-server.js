@@ -43,11 +43,25 @@ module.exports = (plugin) => {
   plugin.controllers.user.getPoints = async (ctx) => {
     const { filters, sort, pagination } = ctx.request.query;
 
+    console.log(filters);
+
     return await strapi.entityService.findPage(
       'plugin::users-permissions.user',
       {
-        ...(filters && {filters}),
+        ...(filters && filters.hasOwnProperty('institution')
+            ? {
+              filters: {
+                institution: {
+                  name: {
+                    $eq: filters.institution
+                  },
+                }
+              }
+            }
+            : {filters}
+        ),
         sort,
+        ...(filters.hasOwnProperty('institution') && { populate: 'institution' }),
         page: pagination.page,
         pageSize: pagination.pageSize
       }
