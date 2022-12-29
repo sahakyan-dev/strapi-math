@@ -50,10 +50,15 @@ module.exports = (plugin) => {
             ? {
               filters: {
                 institution: {
-                  name: {
+                  place_id: {
                     $eq: filters.institution
                   },
-                }
+                },
+                ...(filters.hasOwnProperty('course') && {
+                  course: {
+                    $eq: filters.course
+                  }
+                })
               }
             }
             : {filters}
