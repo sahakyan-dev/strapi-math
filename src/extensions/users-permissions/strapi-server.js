@@ -116,14 +116,27 @@ module.exports = (plugin) => {
     params.role = role.id;
 
     const user = await strapi.query('plugin::users-permissions.user').findOne({
-      where: { email: params.email },
+      where: {
+        $or: [
+          {
+            nickname: {
+              $eqi: params.nickname,
+            },
+          },
+          {
+            email: {
+              $eqi: params.email,
+            },
+          },
+        ],
+      },
     });
 
-    if (user && user.provider === params.provider) {
-      throw new ApplicationError('Email is already taken');
+    if (user && user.nickname.toLowerCase() === params.nickname.toLowerCase()) {
+      throw new ApplicationError('Nickname is already taken');
     }
 
-    if (user && user.provider !== params.provider && settings.unique_email) {
+    if (user && user.email.toLowerCase() === params.email.toLowerCase()) {
       throw new ApplicationError('Email is already taken');
     }
 
@@ -137,7 +150,6 @@ module.exports = (plugin) => {
         .create({ data: params });
 
       const sanitizedUser = await sanitizeUser(user, ctx);
-      console.log('user data', user);
 
       if (settings.email_confirmation) {
         try {
@@ -204,14 +216,18 @@ module.exports = (plugin) => {
     }
 
     const user = await strapi.query('plugin::users-permissions.user').findOne({
-      where: { nickname: params.nickname },
+      where: {
+        nickname: {
+          $eqi: params.nickname,
+        },
+      },
     });
 
-    if (user && user.provider === params.provider) {
+    if (user) {
       throw new ApplicationError('Nickname is already taken');
     }
 
-    params.username = ctx.request.body.nickname;
+    params.username = params.nickname;
     params.role = role.id;
 
     try {
